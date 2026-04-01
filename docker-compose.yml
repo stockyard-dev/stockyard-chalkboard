@@ -1,0 +1,9 @@
+services:
+  chalkboard:
+    image: ghcr.io/stockyard-dev/stockyard-chalkboard:latest
+    ports: ["8960:8960"]
+    environment: [PORT=8960, DATA_DIR=/data]
+    volumes: [chalkboard-data:/data]
+    restart: unless-stopped
+volumes:
+  chalkboard-data:
