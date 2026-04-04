@@ -35,6 +35,7 @@ patch.Content=existing.Content};if patch.Grade==""{
 patch.Grade=existing.Grade};if patch.Status==""{
 patch.Status=existing.Status};if patch.Tags==""{
 patch.Tags=existing.Tags}
+    if patch.Duration==0{patch.Duration=existing.Duration}
     s.db.Update(&patch);wj(w,200,s.db.Get(patch.ID))
 }
 func(s *Server)del(w http.ResponseWriter,r *http.Request){s.db.Delete(r.PathValue("id"));wj(w,200,map[string]string{"deleted":"ok"})}
